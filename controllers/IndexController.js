@@ -1,7 +1,7 @@
 const Controller = require('./Controller');
 class IndexController extends Controller {
-  actionIndex(ctx) {
-    ctx.body = 'action index'
+  async actionIndex(ctx) {
+    ctx.body = await ctx.render('index')
   }
 }
 
