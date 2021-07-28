@@ -1,4 +1,4 @@
-const Controller = require('./Controller');
+import Controller from './Controller';
 class IndexController extends Controller {
   async actionIndex(ctx) {
     ctx.body = await ctx.render('index', {

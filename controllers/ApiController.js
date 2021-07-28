@@ -1,13 +1,9 @@
-const Controller = require('./Controller');
+import Controller from './Controller';
+import BooksModel from '../models/BooksModel'
 class ApiController extends Controller {
-  actionDataList(ctx) {
-    ctx.body = [{
-      id:1,
-      data: 'aaaaaaaa'
-    }, {
-      id:2,
-      data: 'bbbbbb'
-    }]
+  async actionBooksList(ctx) {
+    const booksModel = new BooksModel()
+    ctx.body = await booksModel.getBooksList()
   }
 }
 

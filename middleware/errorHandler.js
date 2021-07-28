@@ -1,11 +1,12 @@
 class ErrorHandler {
-  static error (app) {
+  static error (app, logger) {
     // 全局error catch
     app.use(async (ctx, next) => {
       try {
         await next();
         // 在 next后catch 执行顺序 中间件洋葱模型
       } catch (e) {
+        logger.error(e)
         ctx.body = '500请求，正在积极修复';
       }
     });

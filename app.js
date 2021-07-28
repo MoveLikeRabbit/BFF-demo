@@ -1,13 +1,22 @@
-const Koa = require('koa');
-const co = require('co');
-const render = require('koa-swig');
-const staticServe = require('koa-static');
-const { historyApiFallback } = require('koa2-connect-history-api-fallback');
+import Koa from 'koa';
+import co from 'co';
+import render from 'koa-swig';
+import staticServe from 'koa-static';
+import log4js from "log4js";
 
-const errorHandler = require('./middleware/errorHandler')
-const initController = require('./controllers');
-const config = require('./config');
+import { historyApiFallback } from 'koa2-connect-history-api-fallback';
+
+import errorHandler from './middleware/errorHandler'
+import initController from './controllers';
+import config from './config';
+
 const app = new Koa();
+
+log4js.configure({
+  appenders: { globalError: { type: "file", filename: "./logs/error.log" } },
+  categories: { default: { appenders: ["globalError"], level: "error" } }
+});
+const logger = log4js.getLogger("cheese");
 
 // swig 模板
 app.context.render = co.wrap(render({
@@ -19,11 +28,11 @@ app.context.render = co.wrap(render({
 
 // 初始化中间件
 app.use(staticServe(config.staticDir));
-app.use(historyApiFallback({index: '/', whiteList: ['/api'] }));
+app.use(historyApiFallback({index: '/', whiteList: ['/api', '/books'] }));
 
 
 // 错误处理
-errorHandler.error(app)
+errorHandler.error(app, logger)
 
 // 初始化路由
 initController(app);

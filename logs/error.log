@@ -1,0 +1,55 @@
+[2021-07-28T11:40:17.029] [ERROR] cheese - ReferenceError: sadsad is not defined
+    at actionIndex (/Users/siying/Desktop/BFF/controllers/IndexController.js:4:5)
+    at dispatch (/Users/siying/Desktop/BFF/node_modules/koa-compose/index.js:42:32)
+    at /Users/siying/Desktop/BFF/node_modules/@koa/router/lib/router.js:372:16
+    at dispatch (/Users/siying/Desktop/BFF/node_modules/koa-compose/index.js:42:32)
+    at /Users/siying/Desktop/BFF/node_modules/koa-compose/index.js:34:12
+    at dispatch (/Users/siying/Desktop/BFF/node_modules/@koa/router/lib/router.js:377:31)
+    at dispatch (/Users/siying/Desktop/BFF/node_modules/koa-compose/index.js:42:32)
+    at /Users/siying/Desktop/BFF/middleware/errorHandler.js:15:13
+    at dispatch (/Users/siying/Desktop/BFF/node_modules/koa-compose/index.js:42:32)
+    at /Users/siying/Desktop/BFF/middleware/errorHandler.js:6:15
+[2021-07-28T14:27:05.126] [ERROR] cheese - TypeError: _BooksModel.default is not a constructor
+    at _callee$ (/Users/siying/Desktop/BFF/controllers/ApiController.js:5:24)
+    at tryCatch (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:63:40)
+    at Generator.invoke [as _invoke] (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:294:22)
+    at Generator.next (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:119:21)
+    at asyncGeneratorStep (/Users/siying/Desktop/BFF/controllers/ApiController.js:11:103)
+    at _next (/Users/siying/Desktop/BFF/controllers/ApiController.js:13:194)
+    at /Users/siying/Desktop/BFF/controllers/ApiController.js:13:364
+    at new Promise (<anonymous>)
+    at /Users/siying/Desktop/BFF/controllers/ApiController.js:13:97
+    at actionBooksList (/Users/siying/Desktop/BFF/controllers/ApiController.js:71:33)
+[2021-07-28T14:27:08.851] [ERROR] cheese - TypeError: _BooksModel.default is not a constructor
+    at _callee$ (/Users/siying/Desktop/BFF/controllers/ApiController.js:5:24)
+    at tryCatch (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:63:40)
+    at Generator.invoke [as _invoke] (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:294:22)
+    at Generator.next (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:119:21)
+    at asyncGeneratorStep (/Users/siying/Desktop/BFF/controllers/ApiController.js:11:103)
+    at _next (/Users/siying/Desktop/BFF/controllers/ApiController.js:13:194)
+    at /Users/siying/Desktop/BFF/controllers/ApiController.js:13:364
+    at new Promise (<anonymous>)
+    at /Users/siying/Desktop/BFF/controllers/ApiController.js:13:97
+    at actionBooksList (/Users/siying/Desktop/BFF/controllers/ApiController.js:71:33)
+[2021-07-28T14:27:15.886] [ERROR] cheese - TypeError: _BooksModel.default is not a constructor
+    at _callee$ (/Users/siying/Desktop/BFF/controllers/ApiController.js:5:24)
+    at tryCatch (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:63:40)
+    at Generator.invoke [as _invoke] (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:294:22)
+    at Generator.next (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:119:21)
+    at asyncGeneratorStep (/Users/siying/Desktop/BFF/controllers/ApiController.js:11:103)
+    at _next (/Users/siying/Desktop/BFF/controllers/ApiController.js:13:194)
+    at /Users/siying/Desktop/BFF/controllers/ApiController.js:13:364
+    at new Promise (<anonymous>)
+    at /Users/siying/Desktop/BFF/controllers/ApiController.js:13:97
+    at actionBooksList (/Users/siying/Desktop/BFF/controllers/ApiController.js:71:33)
+[2021-07-28T14:47:20.049] [ERROR] cheese - TypeError: _safeRequest.default.fetch is not a function
+    at BooksModel.getBooksList (/Users/siying/Desktop/BFF/models/BooksModel.js:4:24)
+    at _callee$ (/Users/siying/Desktop/BFF/controllers/BooksController.js:6:35)
+    at tryCatch (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:63:40)
+    at Generator.invoke [as _invoke] (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:294:22)
+    at Generator.next (/Users/siying/Desktop/BFF/node_modules/regenerator-runtime/runtime.js:119:21)
+    at asyncGeneratorStep (/Users/siying/Desktop/BFF/controllers/BooksController.js:11:103)
+    at _next (/Users/siying/Desktop/BFF/controllers/BooksController.js:13:194)
+    at /Users/siying/Desktop/BFF/controllers/BooksController.js:13:364
+    at new Promise (<anonymous>)
+    at /Users/siying/Desktop/BFF/controllers/BooksController.js:13:97
