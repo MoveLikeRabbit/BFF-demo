@@ -6,6 +6,7 @@ const {merge} = require('webpack-merge')
 const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const mode =argv.mode
 const envConfig = require(`./build/webpack.${mode}.js`)
@@ -45,7 +46,13 @@ const baseConfig = {
   },
   plugins: [
     ...htmlPlugins,
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: path.join(__dirname, './src/web/views/layouts'), to: "../web/views/layouts" },
+        { from: path.join(__dirname, './src/web/components'), to: "../web/components" },
+      ],
+    })
   ]
 }
 module.exports = merge(baseConfig, envConfig)

@@ -11,6 +11,7 @@
     "server:prod": "scripty",
     "jscpd": "jscpd './demo/test.js'",
     "start": "NODE_ENV=development nodemon --exec 'babel-node ./src/server/app.js'",
+    "start:test": "NODE_ENV=development nodemon --exec 'babel-node ./dist/server/app.js'",
     "build": "babel ./assets/js/data.js -o ./assets/js/data_bundle.js",
     "test": "mocha --file ./tests/api.spec.js"
   },
