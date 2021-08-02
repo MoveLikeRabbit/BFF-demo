@@ -12,6 +12,9 @@ if(process.env.NODE_ENV === 'development') {
   config = { ...config, ...devConfig}
 
 }
+if(false) {
+  asdsd
+}
 
 if(process.env.NODE_ENV === 'production') {
   const proConfig = {

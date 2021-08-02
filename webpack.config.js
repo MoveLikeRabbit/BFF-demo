@@ -6,11 +6,12 @@ const {merge} = require('webpack-merge')
 const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const AfterHtmlPlugin = require('./build/AfterHtmlPlugin');
 
 const mode =argv.mode
-const envConfig = require(`./build/webpack.${mode}.js`)
 console.log('当前打包环境', mode)
+
+const envConfig = require(`./build/webpack.${mode}.js`)
 const files = glob.sync('./src/web/views/**/*.entry.js')
 const entrys ={}
 const htmlPlugins = []
@@ -22,9 +23,10 @@ files.forEach(url => {
     const [pageName, actionName] = entryKey.split('-');
     entrys[entryKey] = `./src/web/views/${pageName}/${entryKey}.entry.js`
     htmlPlugins.push(new HtmlWebpackPlugin({
-      filename: `../web/views/${pageName}/pages/${actionName}.html`,
+      filename: `../views/${pageName}/pages/${actionName}.html`,
       template: `./src/web/views/${pageName}/pages/${actionName}.html`,
-      chunks: ['runtime', entryKey]
+      chunks: ['runtime', entryKey],
+      inject: false
     }))
   }
 })
@@ -32,7 +34,7 @@ console.log(files)
 const baseConfig = {
   entry: entrys,
   output: {
-    path: path.join(__dirname, './dist/assets'),
+    path: path.join(__dirname, './dist/web/assets'),
     filename: '[name].bundle.js'
   },
   module: {
@@ -47,12 +49,7 @@ const baseConfig = {
   plugins: [
     ...htmlPlugins,
     new MiniCssExtractPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: path.join(__dirname, './src/web/views/layouts'), to: "../web/views/layouts" },
-        { from: path.join(__dirname, './src/web/components'), to: "../web/components" },
-      ],
-    })
+    new AfterHtmlPlugin()
   ]
 }
 module.exports = merge(baseConfig, envConfig)

@@ -6,6 +6,9 @@ class BooksController extends Controller {
     const data = await booksModel.getBooksList()
     ctx.body = await ctx.render('books/pages/list', {data: data.data})
   }
+  async actionBooksCreatePage(ctx) {
+    ctx.body = await ctx.render('books/pages/create', {data: data.data})
+  }
 }
 
 module.exports =BooksController

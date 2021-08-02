@@ -1,8 +1,7 @@
 {% extends '../../layouts/index.html' %}
 {% block title %}图书列表{% endblock %}
 {% block head %}
-    <!-- <link rel="stylesheet" href="custom.css"> -->
-
+<!-- injectcss -->
 {% endblock %}
 
 {% block content %}
@@ -11,5 +10,6 @@
   <li>[[item.id]] [[item.name]]</li>
   {% endfor %}
 </ul>
+<!-- injectjs -->
 {% endblock %}
 

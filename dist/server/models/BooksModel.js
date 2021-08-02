@@ -1,10 +1,22 @@
-import safeRequest from '../utils/safeRequest'
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _safeRequest = _interopRequireDefault(require("../utils/safeRequest"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 class BooksModel {
   getBooksList() {
-    return safeRequest.fetch('xxx')
+    return _safeRequest.default.fetch('xxx');
   }
-  findBook(id) {
 
-  }
+  findBook(id) {}
+
 }
-export default BooksModel
+
+var _default = BooksModel;
+exports.default = _default;
